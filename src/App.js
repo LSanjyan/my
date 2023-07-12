@@ -14,18 +14,20 @@ function App() {
   }
   
 
-  //const handleSubmit = (event) => {
-  //setSubmission(event.target.value)
-//}
+  const handleChange = (event) => {
+  setSubmission(event.target.value)
+}
   return (
     <div className="App">
       <h1> Hi There! </h1>
 
       <form onSubmit={handleSubmit}>
-        <input type="text" />
+        <input type="text" onChange={handleChange} />
         <input type="submit" />
       </form>
-      <ul>{cart.map((item, index) => {
+
+      <ul>
+        {cart.map((item, index) => {
         return (
           <li key={index}>{item}</li>
         )
