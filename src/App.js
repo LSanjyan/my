@@ -2,21 +2,20 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
 
-
 function App() {
 
-  const [cart, setCart] = useState(['apple', 'pear', 'banana', 'cherry'])
+  const [cart, setCart] = useState([])
   const [submission, setSubmission] = useState()
 
   const handleSubmit = (event) => {
     event.preventDefault()
     setCart([...cart, submission])
   }
-  
 
   const handleChange = (event) => {
-  setSubmission(event.target.value)
-}
+    setSubmission(event.target.value)
+  }
+
   return (
     <div className="App">
       <h1> Hi There! </h1>
@@ -28,13 +27,11 @@ function App() {
 
       <ul>
         {cart.map((item, index) => {
-        return (
-          <li key={index}>{item}</li>
-        )
-})}
-
-        </ul>
-      
+          return (
+            <li key={index}>{item}</li>
+          )
+        })}
+      </ul>
     </div>
   );
 }
