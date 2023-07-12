@@ -1,23 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
+
 
 function App() {
+
+  const [cart, setCart] = useState(['apple', 'pear', 'banana', 'cherry'])
+  const [submission, setSubmission] = useState()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setCart([...cart, submission])
+  }
+  
+
+  //const handleSubmit = (event) => {
+  //setSubmission(event.target.value)
+//}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Hi There! </h1>
+
+      <form onSubmit={handleSubmit}>
+        <input type="text" />
+        <input type="submit" />
+      </form>
+      <ul>{cart.map((item, index) => {
+        return (
+          <li key={index}>{item}</li>
+        )
+})}
+
+        </ul>
+      
     </div>
   );
 }
